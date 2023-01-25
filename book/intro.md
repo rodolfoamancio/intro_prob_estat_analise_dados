@@ -1,11 +1,11 @@
-# Welcome to your Jupyter Book
+# Introdução à probabilidade e estatística para análise de dados
 
-This is a small sample book to give you a feel for how book content is
-structured.
-It shows off a few of the major file types, as well as some sample content.
-It does not go in-depth into any particular topic - check out [the Jupyter Book documentation](https://jupyterbook.org) for more information.
+Bem-vindo, esse livro é dedicado à quem está aprendendo probabilidade e estatítica para análise de dados, os conteúdos são direcionados à um público iniciante. 
 
-Check out the content pages bundled with this sample book to see more.
+Durante os capítulos, conceitos teóricos são abordados de forma básica, priorizando o ententimento do racional e com pouco ênfase em matemática e outros temas que acompanham o assunto. Além disso, os exemplos são feitos em python. Não é prioridade do livro realizar um letramento do leitor na ferramenta, mas busca-se explicar as funções, os métodos e as bibliotecas de forma básica.
+
+Esse livro é divido em duas partes, na primeira, foca-se em introdução da probabilidade, conceitos de probabilidade total, Teorema de Bayes, Teorema do limite central etc. Na segunda parte, é apresentad a estatística, com análises de estatística descritiva, testes de hipótese e introdução à regressão.
+
 
 ```{tableofcontents}
 ```

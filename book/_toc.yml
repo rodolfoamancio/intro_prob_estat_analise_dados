@@ -3,7 +3,12 @@
 
 format: jb-book
 root: intro
-chapters:
-- file: markdown
-- file: notebooks
-- file: markdown-notebooks
+parts:
+- caption: Parte I - Probabilidade
+  chapters:
+    - file: 01_o_que_e_probabilidade.ipynb
+    - file: 02_prob_cond_bayes.ipynb
+
+- caption: Parte II - Estatística
+  chapters:
+    - file: markdown.md
