@@ -1,0 +1,556 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>O que é probabilidade? &#8212; Introdução à probabilidade e estatística para analistas de dados</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Probabilidade condicional e teorema de Bayes" href="02_prob_cond_bayes.html" />
+    <link rel="prev" title="Introdução à probabilidade e estatística para análise de dados" href="intro.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Introdução à probabilidade e estatística para analistas de dados</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Introdução à probabilidade e estatística para análise de dados
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Parte I - Probabilidade
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   O que é probabilidade?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="02_prob_cond_bayes.html">
+   Probabilidade condicional e teorema de Bayes
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Parte II - Estatística
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="markdown.html">
+   Markdown Files
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/rodolfoamancio/intro_prob_estat_analise_dados/master?urlpath=tree/book/01_o_que_e_probabilidade.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/rodolfoamancio/intro_prob_estat_analise_dados"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/rodolfoamancio/intro_prob_estat_analise_dados/issues/new?title=Issue%20on%20page%20%2F01_o_que_e_probabilidade.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/01_o_que_e_probabilidade.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   O que é probabilidade?
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#definindo-probabilidade">
+   Definindo probabilidade
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#eventos-e-espaco-amostral">
+     Eventos e espaço amostral
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#axiomas-da-probabilidade">
+     Axiomas da probabilidade
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#calculando-uma-probabilidade-simples">
+     Calculando uma probabilidade simples
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>O que é probabilidade?</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   O que é probabilidade?
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#definindo-probabilidade">
+   Definindo probabilidade
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#eventos-e-espaco-amostral">
+     Eventos e espaço amostral
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#axiomas-da-probabilidade">
+     Axiomas da probabilidade
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#calculando-uma-probabilidade-simples">
+     Calculando uma probabilidade simples
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="o-que-e-probabilidade">
+<h1>O que é probabilidade?<a class="headerlink" href="#o-que-e-probabilidade" title="Permalink to this headline">#</a></h1>
+<p>Lidamos com incerteza o tempo todo em nossas vidas, ao escolhermos se devemos levar um guarda-chuva ao sair de casa, ao fazer escolhas financeiras ou outros assuntos em que temos informações limitadas e modelos pouco representativos da variabilidade do mundo (ou das pessoas). Ao lidar com esses problemas, muitas vezes atríbuimos probabilidades à eventos específicos. Por exemplo: qual a chance de chover? Definir probabilidade rigorosamente é bem mais difícil do que possa parecer, de fato a comunidade científica se divide em duas visões sobre o assunto:</p>
+<ul class="simple">
+<li><p>Abordagem frequentista (ou clássica): associada ao número de vezes que podemos repetir um experimento e obter o mesmo resultado, por exemplo ao lançar uma moeda 100 vezes e registrar o número de vezes que registramos cara virada para cima, podemos tomar o quociente entre os dois valores como a probabilidade de se obter cara.</p></li>
+<li><p>Abordagem Bayesiana: a descrição anterior é alvo de críticas. Por exemplo: considere uma eleição presidencial, ou a previsão do tempo para um dia específico. Nesses dois casos, os eventos não são repetidos: só há um dia 21/01/2023 ou uma eleição presidencial em 2022 (considere apenas um dos turnos). Em resumo, não são experimentos que podemos repetir e registrar os resultados para depois calcular a frequência. Mas ainda assim definimos probabilidades para eles. De fato, o que os Bayesianos argumentam é que probabilidade é uma medida da crença que temos em um evento, ou a possibilidade dele ocorrer.</p></li>
+</ul>
+<p>Apesar das críticas e divergências das duas vertentes, os pilares que sustentam a probabilidade em ambos os campos são os mesmos. Durante esse material, será utilizada a abordagem frequentista. Um leitor atento pode ficar incomodado com a crítica anterior e a escolha desse caminho. Para esse caso, podemos assumir que apesar de alguns eventos não poderem ser repetidos, podemos ainda assim tomar essa medida para indicar se ele deve ocorrer. Conforme veremos, isso não nos imperidá de traçar resultados interessantes e entender como aplicar essa teoria em nossas tomadas de decisão e análises.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="definindo-probabilidade">
+<h1>Definindo probabilidade<a class="headerlink" href="#definindo-probabilidade" title="Permalink to this headline">#</a></h1>
+<section id="eventos-e-espaco-amostral">
+<h2>Eventos e espaço amostral<a class="headerlink" href="#eventos-e-espaco-amostral" title="Permalink to this headline">#</a></h2>
+<p>Para definir probabilidade precisamos estabelecer algumas nomenclaturas para os conceitos e grandezas que cercam nossa análise. Deonominamos <strong>evento</strong> o possível resultado de um experimento, por exemplo o lançamento de um dado e registro de um número (por exemplo 5) é um evento. Trata-se de uma observação nesse caso. A coleção de possíveis resultados de um experimento é denominado <strong>espaço amostral</strong>, usualmente ele é representado pela letra grega ômega maiúscula, <span class="math notranslate nohighlight">\(\Omega\)</span>. Vide os exemplos:</p>
+<ul class="simple">
+<li><p>Lançamento de um dado: <span class="math notranslate nohighlight">\(\Omega = \{1, 2, 3, 4, 5, 6\}\)</span></p></li>
+<li><p>Lançamento de uma moeda: <span class="math notranslate nohighlight">\(\Omega = \{\textnormal{cara}, \textnormal{coroa}\}\)</span>, em alguns casos o lançamento de uma moeda aparece no formato <span class="math notranslate nohighlight">\(\Omega = \{\textnormal{H}, \textnormal{T}\}\)</span> em referência às palavras em inglês heads (para cara) e tails (para coroa), isso é útil pois a inicial das palavras em português são iguais.</p></li>
+</ul>
+<p>De forma genética podemos escrever <span class="math notranslate nohighlight">\(\Omega = \{\omega_1, \omega_2, ...\}\)</span>, em que <span class="math notranslate nohighlight">\(\omega_1, \omega_2,...\)</span> são os possíveis resultados.</p>
+<p>Um espaço amostral nada mais é que um conjunto, como tal ele pode ser submetido a operações como partição, união, interesecão etc. Isso ficará mais claro a partir de um exemplo:</p>
+<p>Considerde um dado de 6 lados. Tempos portanto o espaço amostral <span class="math notranslate nohighlight">\(\Omega = \{1, 2, 3, 4, 5, 6\}\)</span>. Podemos <strong>particionar</strong> esse conjunto com estratégias diferentes, por exemplo em números pares e ímpares: <span class="math notranslate nohighlight">\(P = \{2, 4, 6\}\)</span> e <span class="math notranslate nohighlight">\(I = \{1, 3, 5\}\)</span>. Ou entre números maiores que <span class="math notranslate nohighlight">\(3\)</span> ou não <span class="math notranslate nohighlight">\(M = \{4, 5, 6\}\)</span> e <span class="math notranslate nohighlight">\(m = \{1, 2, 3\}\)</span>. Nesse caso usamos o critério maior que <span class="math notranslate nohighlight">\(3\)</span> para classificar os números, como <span class="math notranslate nohighlight">\(3=3\)</span> ele não é maior que si mesmo, e fica no segundo conjunto.</p>
+<p>Sobre esses conjuntos veremos na próxima seção como atribuir probabilidades, mas antes vamos analisar duas operações de conjuntos:</p>
+<ol class="simple">
+<li><p><strong>União</strong>: chamamos de união o conjunto formado por todos os elementos de dois conjuntos, representamos a união de dois conjuntos <span class="math notranslate nohighlight">\(A\)</span> e <span class="math notranslate nohighlight">\(B\)</span> por <span class="math notranslate nohighlight">\(A \cup B\)</span>. Por exemplo, a união dos números pares e maiores que 3 é: <span class="math notranslate nohighlight">\(P \cup M = \{2, 4, 6\} \cup \{4, 5, 6\} = \{2, 4, 5, 6\}\)</span>.</p></li>
+<li><p><strong>Intersecção</strong>: chamamos de intersecção o conjunto formado pelos elementos que aparecem nos dois conjuntos, representamos a interseção de dois conjuntos <span class="math notranslate nohighlight">\(A\)</span> e <span class="math notranslate nohighlight">\(B\)</span> pro <span class="math notranslate nohighlight">\(A \cap B\)</span>. Por exemplo, a interseção entre os conjuntos de números ímpares e maiores que 3 é: <span class="math notranslate nohighlight">\(I \cap M = \{1, 3, 5\} \cap \{4, 5, 6\} = \{5\}\)</span>. Nesse caso temos um conjunto de apenas um elemento, pois somente ele aparece nos dois conjuntos.</p></li>
+</ol>
+<p>Um conjunto sem nenhum elemento é chamado <strong>conjunto vazio</strong> e é representado por <span class="math notranslate nohighlight">\(\varnothing\)</span>. Dois conjuntos são chamados de <strong>disjuntos</strong> se sua interseção tem como resultado um conjunto vazio. Por exemplo, a intersecção entre os conjuntos dos números pares e ímpares: <span class="math notranslate nohighlight">\(P \cap I = \{2, 4, 6\} \cap \{1, 3, 5\} = \varnothing\)</span>, pois não há elemento em comum entre os conjuntos.</p>
+</section>
+<section id="axiomas-da-probabilidade">
+<h2>Axiomas da probabilidade<a class="headerlink" href="#axiomas-da-probabilidade" title="Permalink to this headline">#</a></h2>
+<p>A probabilidade (<span class="math notranslate nohighlight">\(\mathbb{P}\)</span>) que atribuímos à um evento (<span class="math notranslate nohighlight">\(A\)</span>) deve obedecer algumas propriedades, são elas:</p>
+<ol class="simple">
+<li><p><span class="math notranslate nohighlight">\(0 \leq \mathbb{P}(A) \leq 1\)</span>. Ou seja, uma probabilidade não pode ser negativa nem maior que 1 (ou 100%), o que é bastante razoável;</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbb{P}(\Omega) = 1\)</span>. Ou seja, a probabilidade do espaço amostral é 1 (ou 100%), pois o espaço amostral reúne todos os possíveis resultados de um experimento, caso esse número fosse menor que <span class="math notranslate nohighlight">\(1\)</span>, haveria algum possível resultado não listado.</p></li>
+<li><p>Suponha que os eventos <span class="math notranslate nohighlight">\(E_1, E_2, ..., E_n\)</span> sejam disjuntos. Então, <span class="math notranslate nohighlight">\(\mathbb{P}(E_1 \cup E_2 \cup ... \cup E_n) = \mathbb{P}(E_1) + \mathbb{P}(E_2) + ... +\mathbb{P}(E_n)\)</span>. Retomando o exemplo anterior, os eventos “observar um número par” (<span class="math notranslate nohighlight">\(P\)</span>) e “observar um número ímpar” (<span class="math notranslate nohighlight">\(I\)</span>) são disjuntos. Matematicamente isso significa que <span class="math notranslate nohighlight">\(P \cap I = \varnothing\)</span>, na prática podemos entender isso como eventos excludentes: ou obeservamos um número par ao lançar um dado, ou ímpar. Não é possível um número ser das duas categorias ao mesmo tempo. Então <span class="math notranslate nohighlight">\(\mathbb{P}(P \cup I) = \mathbb{P}(\{1, 2, 3, 4, 5, 6\}) = \mathbb{P}(\{1, 3, 5\}) + \mathbb{P}(\{2, 4, 6\})\)</span>. Podemos entender essa fórmula da seguinte maneira: a probabilidade de se observar um número “par” ou “ímpar” é ugual à soma da probabilidade de se observar um número “par” mais a probabilidade de se observar um número “ímpar”. Note que esse resultado só é válido para o exemplo pois “par” ou “ímpar” são excludentes, ou disjuntos. Conforme veremos adiante, caso os eventos tenham um resultado em comum a relação não é válida.</p></li>
+</ol>
+</section>
+<section id="calculando-uma-probabilidade-simples">
+<h2>Calculando uma probabilidade simples<a class="headerlink" href="#calculando-uma-probabilidade-simples" title="Permalink to this headline">#</a></h2>
+<p>De forma simplificada, se consideramos um evento <span class="math notranslate nohighlight">\(A\)</span> e um espaço amostral <span class="math notranslate nohighlight">\(\Omega\)</span>. Então a probabilidade de se observar o evento <span class="math notranslate nohighlight">\(A\)</span> é:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+    \mathbb{P}(A) = \frac{\text{número de resultados favoráveis à A}}{\text{número total de possíveis resultados}} = \frac{\text{tamanho de } A}{\text{tamanho de }\Omega}
+\end{equation*}\]</div>
+<p>Sendo assim, para um dado <span class="math notranslate nohighlight">\(\Omega = \{1, 2, 3, 4, 5, 6\}\)</span>,a probabilidade de se observar um resultado par é <span class="math notranslate nohighlight">\(\mathbb{P}(P) = \frac{\text{tamamho de } \{2, 4, 6\}}{\text{tamanho de} \{1,2,3,4,5,6 \}} = \frac{3}{6} = \frac{1}{2}\)</span>.</p>
+<p>Ou ainda, a probabilidade de se observar o número <span class="math notranslate nohighlight">\(1\)</span> é: <span class="math notranslate nohighlight">\(\mathbb{P}(\{1\}) = 1/6\)</span>.</p>
+<p>Esses resultados atendem aos axiomas anteriores, pode-se calcular a probabilidade de se observar um número ímpar <span class="math notranslate nohighlight">\(\mathbb{P}(I) = 1/2\)</span>. Assim, a probabilidade de se observar um número par ou ímpar é <span class="math notranslate nohighlight">\(\mathbb{P}(P \cup I) = 1/2 + 1/2 = 1\)</span>. Note ainda que <span class="math notranslate nohighlight">\(P \cup I = \Omega\)</span> e <span class="math notranslate nohighlight">\(\mathbb{P}(\Omega) = 1\)</span>.</p>
+<p>Veremos agora um problema que ocorre quando lidamos com eventos não disjuntos (ou excludentes). Considere a probabilidade de se observar um número ímpar ou maior que 3. Separadamente temos:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\mathbb{P}(I) = \mathbb{\{1, 3, 5\}} = 3/6 = 1/2\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbb{P}(M) = \mathbb{\{4, 5, 6\}} = 3/6 = 1/2\)</span></p></li>
+</ul>
+<p>Nesse caso a soma das probabilidades não corresponde à probabilidade que queremos, note que <span class="math notranslate nohighlight">\(\mathbb{P}(I) + \mathbb{P}(M) = 1/2 + 1/2 = 1 \neq \mathbb{P}(\text{impar ou maior que 3})\)</span>. Isso ocorre pois o número <span class="math notranslate nohighlight">\(5\)</span> aparece nas duas listas, ou seja, estamos contando ele duas vezes no cálculo. Temos duas formas de resolver esse problema.</p>
+<ol class="simple">
+<li><p>Sem pensarmos em fórmula podemos escrever o conjunto de interesse <span class="math notranslate nohighlight">\(\text{ímpar ou maior 3} = \{1, 3, 4, 5, 6\}\)</span>. Nesse caso, teríamos <span class="math notranslate nohighlight">\(\mathbb{P}(\{1, 3, 4, 5, 6\}) = 5/6\)</span>.</p></li>
+<li><p>Também podemos recorrer à uma fórmula, sejam <span class="math notranslate nohighlight">\(A\)</span> e <span class="math notranslate nohighlight">\(B\)</span> dois eventos não disjuntos, então <span class="math notranslate nohighlight">\(\mathbb{P}(A \cup B) = \mathbb{P}(A) + \mathbb{P}(B) - \mathbb{P}(A \cap B)\)</span>. Nesse caso, o termo <span class="math notranslate nohighlight">\(\mathbb{P}(A \cap B)\)</span> é a probabilidade da intersecção dos eventos e serve para subtrair a probabilidade do resultado que está sendo contado mais de uma vez, pois aparece nos dois casos. No nosso caso, podemos ver que <span class="math notranslate nohighlight">\(I \cap M = \{5\}\)</span>. Logo, <span class="math notranslate nohighlight">\(\mathbb{P}(I \cap M) = 1/6\)</span>. Sendo assim, retomando a fórmula: <span class="math notranslate nohighlight">\(\mathbb{P}(\text{ímpar ou maior 3}) = \mathbb{P}(I) + \mathbb{P}(M) - \mathbb{P}(I \cap M) = 1/2 + 1/2 - 1/6 = 5/6\)</span>.</p></li>
+</ol>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="intro.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Introdução à probabilidade e estatística para análise de dados</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="02_prob_cond_bayes.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Probabilidade condicional e teorema de Bayes</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Rodolfo J. Amancio<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
