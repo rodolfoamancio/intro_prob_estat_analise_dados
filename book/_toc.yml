@@ -6,8 +6,9 @@ root: intro
 parts:
 - caption: Parte I - Probabilidade
   chapters:
-    - file: 01_o_que_e_probabilidade.ipynb
+    - file: 01_prob_intro.md
     - file: 02_prob_cond_bayes.ipynb
+    - file: 03_variaveis_aleatorias.ipynb
 
 - caption: Parte II - Estatística
   chapters:
