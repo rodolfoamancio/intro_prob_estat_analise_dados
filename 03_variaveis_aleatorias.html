@@ -1,0 +1,814 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>3. Variáveis aleatórias &#8212; Introdução à probabilidade e estatística para analistas de dados</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Markdown Files" href="markdown.html" />
+    <link rel="prev" title="2. Probabilidade condicional e teorema de Bayes" href="02_prob_cond_bayes.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Introdução à probabilidade e estatística para analistas de dados</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Introdução à probabilidade e estatística para análise de dados
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Parte I - Probabilidade
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="01_prob_intro.html">
+   1. Introdução à probabilidade
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="02_prob_cond_bayes.html">
+   2. Probabilidade condicional e teorema de Bayes
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   3. Variáveis aleatórias
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Parte II - Estatística
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="markdown.html">
+   Markdown Files
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/rodolfoamancio/intro_prob_estat_analise_dados/master?urlpath=tree/book/03_variaveis_aleatorias.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/rodolfoamancio/intro_prob_estat_analise_dados"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/rodolfoamancio/intro_prob_estat_analise_dados/issues/new?title=Issue%20on%20page%20%2F03_variaveis_aleatorias.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/03_variaveis_aleatorias.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#variaveis-aleatorias-discretas">
+   3.1. Variáveis aleatórias discretas
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-distribuicao-de-bernoulli">
+     3.1.1. A distribuição de Bernoulli
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#exemplo">
+       Exemplo
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-distribuicao-binomial">
+     3.1.2. A distribuição binomial
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id1">
+       Exemplo
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-distribuicao-de-poisson">
+     3.1.3. A distribuição de Poisson
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id2">
+       Exemplo
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>3. Variáveis aleatórias</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#variaveis-aleatorias-discretas">
+   3.1. Variáveis aleatórias discretas
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-distribuicao-de-bernoulli">
+     3.1.1. A distribuição de Bernoulli
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#exemplo">
+       Exemplo
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-distribuicao-binomial">
+     3.1.2. A distribuição binomial
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id1">
+       Exemplo
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-distribuicao-de-poisson">
+     3.1.3. A distribuição de Poisson
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id2">
+       Exemplo
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="variaveis-aleatorias">
+<h1>3. Variáveis aleatórias<a class="headerlink" href="#variaveis-aleatorias" title="Permalink to this headline">#</a></h1>
+<p>Quando realizamos um experimento ou analisamos algum resultado é comum que não estejamos interessados no resultado em sí, mas sim em uma função do resultado. Por exemplo, considere que dois dados são lançados e registramos os resultados de cada face, podemos encontrar resultados como 1 e 5, 2 e 3 e assim por diante. Os resultados individuais podem ser irrelevantes, no caso nossa preocupação pode ser a soma das faces. Nesse cenário teríamos 10 possíveis resultados <span class="math notranslate nohighlight">\(\{ 2, 3, ..., 11, 12\}\)</span>. Nesse caso, eles não ocorrem com igual frequência. Tome como exemplo o resultado dois para a soma, há apenas uma combinação que resulta nesse valor: 1 e 1, em cada dado. Por outro lado, o resultado 8 pode ocorrer de formas diferentes: 2 e 6, 3 e 5, 4 e 4.</p>
+<p>Podemos entender uma variável aleatória como uma função sobre os resultados de um experimento que extrai os valores de interesse para nosso estudo. Por exemplo, ao analisar uma população de pessoas há varias informações disponíveis sobre elas: nome, altura, idade, sexo etc.</p>
+<p>Se considerarmos o sexo atribuido no nascimento teríamos dois casos possíveis: masculino e feminimo. Trata-se de uma informação categórica. Por outro lado, a altura é uma medida que varia aproximadamente de forma contínua (1,72; 1,68, 1,54, …).</p>
+<p>Os dois exemplos anteriores ilustram que temos tipos de dados diferentes, o que implica distribuições diferentes de informações. Variáveis aleatórias podem ser divididas em duas categorias: discretas e contínuas.</p>
+<p>De forma geral, representaremos uma variável aleatória por letras maiúsculas: <span class="math notranslate nohighlight">\(X\)</span>, ou <span class="math notranslate nohighlight">\(Y\)</span>, …</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">stats</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s2">&quot;fivethirtyeight&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="variaveis-aleatorias-discretas">
+<h2>3.1. Variáveis aleatórias discretas<a class="headerlink" href="#variaveis-aleatorias-discretas" title="Permalink to this headline">#</a></h2>
+<p>Chamamos de variáveis aleatórias discretas as que podem assumir um resultado dentre um conjunto enumerável (finito ou infinito). Vamos esclarecer isso com exemplos:</p>
+<ul class="simple">
+<li><p>Podemos condificar a informação de sexo em número, por exemplo podemos assumir o padrão 0 para sexo feminino e 1 para masculino. No cenário que estamos avaliando teríamos apenas dois casos.</p></li>
+<li><p>Outra situação seria dados de contagem, considere o número de visitas que uma pessoa faz ao pronto socorro em um ano, ela pode ir uma vez, duas, três… ou nenhuma. A rigor não há um limite</p></li>
+</ul>
+<p>Para cada caso teríamos distribuições diferentes. Iremos analisar alguns exemplos a seguir.</p>
+<p>Variáveis aleatórias discretas são modeladas por distribuições de probabilidade, ocasionalmente chamadas de função massa de probabilidade (FMP). Usamos esse nome para diferenciar de função densidade de probabilidade (FDP), usadas para variáveis contínuas.</p>
+<section id="a-distribuicao-de-bernoulli">
+<h3>3.1.1. A distribuição de Bernoulli<a class="headerlink" href="#a-distribuicao-de-bernoulli" title="Permalink to this headline">#</a></h3>
+<p>A distribuição de Bernoulli pode assumir um de dois valores: <span class="math notranslate nohighlight">\(\{0, 1\}\)</span>. Ela é parametrizada por um parâmetro <span class="math notranslate nohighlight">\(p\)</span>, que indica a probabilidade do caso <span class="math notranslate nohighlight">\(1\)</span>. Ela foi inicialmente proposta para modelar o lançamento de uma moeda, nesse caso é comum referir-se a <span class="math notranslate nohighlight">\(p\)</span> como probabilidade de sucesso. Sua FDM é dada por:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-bec4a904-599b-40bc-8fc5-d4d3ecb4d12d">
+<span class="eqno">(4)<a class="headerlink" href="#equation-bec4a904-599b-40bc-8fc5-d4d3ecb4d12d" title="Permalink to this equation">#</a></span>\[\begin{equation}
+    \mathbb{P}(X = x) = p^x (1-p)^{1-x}
+\end{equation}\]</div>
+<p>Tomando o caso da moeda como exemplo, codificamos os resultados da seguinte maneira:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+    X = 
+    \begin{cases}
+        0 \textnormal{ se cara}\\
+        1 \textnormal{ se coroa}
+    \end{cases}
+\end{equation*}\]</div>
+<p>Assim, temos:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+    \mathbb{P}(X = 0) &amp;= p^0(1-p)^{1-0} = 1*(1-p)^1 = 1-p \\
+    \mathbb{P}(X = 1) &amp;= p^1(1-p)^{1-1} = p*(1-p)^0 = p
+\end{align*}\]</div>
+<p>Se a probabilide de sucesso é 50%, temos uma moeda “honesta”, em que as probabilidades se tornam: <span class="math notranslate nohighlight">\(\mathbb{P}(X=0) = 0.5\)</span> e <span class="math notranslate nohighlight">\(\mathbb{P}(X=1) = 0.5\)</span>. Caso a moeda fosse viciada, teríamos outra situação, por exemplo se a probabilidade de sucesso fosse <span class="math notranslate nohighlight">\(p = 0.6\)</span>, teríamos que a probabilidade de cara seria <span class="math notranslate nohighlight">\(\mathbb{P}(X=0) = 0.4\)</span>, ou coroa <span class="math notranslate nohighlight">\(\mathbb{P}(X = 1) = 0.6\)</span>.</p>
+<p>Quando um variável aleatória de interesse segue uma distribuição de Bernoulli, a representamos por <span class="math notranslate nohighlight">\(X \sim \text{Bernoulli}(p)\)</span>, ou <span class="math notranslate nohighlight">\(X \sim \text{Ber}(p)\)</span>.</p>
+<section id="exemplo">
+<h4>Exemplo<a class="headerlink" href="#exemplo" title="Permalink to this headline">#</a></h4>
+<p>A seguir, veremos como usar a biblioteca <code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code> do <code class="docutils literal notranslate"><span class="pre">python</span></code> para criar uma variável de Bernoulli e realizar amostragens com ela.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># para criar uma variável aleatória de Bernoulli,</span>
+<span class="c1"># usamos stats.bernoulli(p), substuindo p por nossa</span>
+<span class="c1"># probabilidade de interesse</span>
+<span class="n">bernoulli</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">bernoulli</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+
+<span class="c1"># uma vez criada, podemos simular resultados dela, por exemplo:</span>
+<span class="c1"># bernoulli.rvs(size=&lt;tamanho&gt;)</span>
+<span class="c1"># dessa forma geramos resultados aleatórios amostrados dessa distribuição</span>
+<span class="n">amostras_bernoulli</span> <span class="o">=</span> <span class="n">bernoulli</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Amostras Bernoulli:&quot;</span><span class="p">,</span> <span class="n">amostras_bernoulli</span><span class="p">)</span>
+<span class="c1"># podemos calcular a média dos valores amostrados, qual resultado você espera?</span>
+
+<span class="c1"># usamos a função np.mean() para calcular a média de um vetor ou lista de números</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Média de 100 amostras&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">amostras_bernoulli</span><span class="p">))</span>
+
+<span class="c1"># naturalmente encontramos um valor próximo à p, o valor que parametriza</span>
+<span class="c1"># nossa distribuição, podemos fazer uma simulação com tamanho maior</span>
+<span class="n">amostras_bernoulli</span> <span class="o">=</span> <span class="n">bernoulli</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Média de 1000 amostras&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">amostras_bernoulli</span><span class="p">))</span>
+
+<span class="c1"># se usássemos outro parâmetro, econtraríamos outra distribuição de valores</span>
+
+<span class="n">bernoulli</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">bernoulli</span><span class="p">(</span><span class="mf">0.8</span><span class="p">)</span>
+
+<span class="n">amostras_bernoulli</span> <span class="o">=</span> <span class="n">bernoulli</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Média de 1000 amostras&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">amostras_bernoulli</span><span class="p">))</span>
+
+<span class="c1"># Novamente, vemos a média tendendo ao valor do parâmetro</span>
+<span class="c1"># eles não são identicos pois estamos fazendo uma amostra finita,</span>
+<span class="c1"># conforme tomamos amostras maiores, os resultados da amostra ficam mais</span>
+<span class="c1"># próximos aos parâmetros orinigais</span>
+
+<span class="c1"># também podemos usar o recuso para calcular a FMP</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Probabilidade X = 0: </span><span class="si">{</span><span class="n">bernoulli</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Probabilidade X = 1: </span><span class="si">{</span><span class="n">bernoulli</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># qualquer valor diferente de 0 ou 1, que são os valores possíveis da</span>
+<span class="c1"># variável aleatória de Bernoulli terão resultado zero</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Probabilidade X = 0.5: </span><span class="si">{</span><span class="n">bernoulli</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Probabilidade X = 10: </span><span class="si">{</span><span class="n">bernoulli</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Amostras Bernoulli: [0 1 1 0 1 1 1 1 0 1 1 1 0 0 1 1 1 0 1 1 1 1 1 0 1 1 1 1 0 1 0 1 1 1 1 1 0
+ 1 0 0 1 1 0 1 1 1 0 0 1 0 0 1 1 1 0 0 1 0 0 1 0 0 0 0 0 1 1 0 0 1 0 0 0 1
+ 0 1 0 1 1 1 1 0 0 1 1 0 1 0 0 1 1 1 0 0 0 0 1 1 0 1]
+Média de 100 amostras 0.57
+Média de 1000 amostras 0.507
+Média de 1000 amostras 0.775
+Probabilidade X = 0: 0.20
+Probabilidade X = 1: 0.80
+Probabilidade X = 0.5: 0.00
+Probabilidade X = 10: 0.00
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="a-distribuicao-binomial">
+<h3>3.1.2. A distribuição binomial<a class="headerlink" href="#a-distribuicao-binomial" title="Permalink to this headline">#</a></h3>
+<p>Considere a situação em que lançamos uma moeda <span class="math notranslate nohighlight">\(n\)</span> vezes. Qual a probabilidade de que nesses lançamentos encontramos <span class="math notranslate nohighlight">\(k\)</span> coroas? A situação é um pouco mais complexa pois podemos encontrar o mesmo resultado em sequências diferentes. Por exemplo, para 5 lançamento, podemos encontrar algumas possíveis combinações para 3 caras:</p>
+<ul class="simple">
+<li><p>cara, cara, cara, coroa, coroa</p></li>
+<li><p>cara, cara, coroa, coroa, cara</p></li>
+<li><p>cara, coroa, coroa, cara, cara</p></li>
+</ul>
+<p>e assim por diante. O problema de determinar o número de possíveis combinações de <span class="math notranslate nohighlight">\(k\)</span> elementos em <span class="math notranslate nohighlight">\(n\)</span> amostras pertence à análise combinatória. Em particular quando a ordem dos eventos não importa e cada lançamento é independente do anterior estamos diante de uma <strong>combinação</strong>, que segue a seguinte fórmula:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-f8f3da4d-10ed-43ee-bb2d-f400796bdfb8">
+<span class="eqno">(5)<a class="headerlink" href="#equation-f8f3da4d-10ed-43ee-bb2d-f400796bdfb8" title="Permalink to this equation">#</a></span>\[\begin{equation}
+    C_{n, k} = \binom{n}{k} = \frac{n!}{k!(n-k)!}
+\end{equation}\]</div>
+<p>Nessa fórmula, o símbolo ! representa um número fatoria, representado pela multiplicação de todos os numeros de 1 até o número em questão, de forma genérica <span class="math notranslate nohighlight">\(n! = 1\times 2 \times ... \times (n-1) \times n\)</span>. Por exemplo, <span class="math notranslate nohighlight">\(6! = 1 \times 2 \times 3 \times 4 \times 5 \times 6 = 120\)</span>.</p>
+<p>Voltando ao exemplo anterior, o número de combinações possíveis que resulta em 3 caras, dentre 5 lançamentos da moeda é: <span class="math notranslate nohighlight">\(C_{5, 3} = \binom{5}{3} = 10\)</span>. Dessa forma, temos 10 possíveis combinações que resultam em 3 caras. A introdução anterior permite apresentar finalmente a distribuição binomial. Representamos uma variável aleatória binomial da forma <span class="math notranslate nohighlight">\(X \sim \text{Bin}(n, p)\)</span>. Sua função massa de probabilidade é:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-0fb2af5e-e607-4953-a5d2-db7f2cf99832">
+<span class="eqno">(6)<a class="headerlink" href="#equation-0fb2af5e-e607-4953-a5d2-db7f2cf99832" title="Permalink to this equation">#</a></span>\[\begin{equation}
+    \mathbb{P}(X = k) = \binom{n}{k}p^k (1-p)^{n - k}
+\end{equation}\]</div>
+<p>Nesse caso, <span class="math notranslate nohighlight">\(k\)</span> é um número entre <span class="math notranslate nohighlight">\(0\)</span> e <span class="math notranslate nohighlight">\(n\)</span>, ou <span class="math notranslate nohighlight">\(k \in \{ 0, 1, 2, ..., n\}\)</span>.</p>
+<p>A distribuição binomial permite calcular facilmente a probabilidade de se observar <span class="math notranslate nohighlight">\(k\)</span> sucessos (ou caras, no exemplo anterior), dentre <span class="math notranslate nohighlight">\(n\)</span> tentativas, em que cada sucesso ocorre com probabilidade <span class="math notranslate nohighlight">\(p\)</span>.</p>
+<section id="id1">
+<h4>Exemplo<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h4>
+<p>Vejamos o exemplo usando o objetto <code class="docutils literal notranslate"><span class="pre">stats.binom</span></code> da biblioteca <code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code> em <code class="docutils literal notranslate"><span class="pre">python</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># definimos uma biomial com n = 100, e p = 0.5,</span>
+<span class="c1"># equivalente à 100 lançamentos de uma moeda que </span>
+<span class="c1"># tem 50% de probabilidade de resultar cara,</span>
+<span class="c1"># ou 50% de resultar coroa</span>
+<span class="n">binomial</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">binom</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+
+<span class="c1"># usamos agora o método .rvs(&lt;tamanho&gt;)</span>
+<span class="c1"># para gerar alguns possíveis resultados</span>
+<span class="n">amostras_bimomial</span> <span class="o">=</span> <span class="n">binomial</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Amostras binomial: </span><span class="si">{</span><span class="n">amostras_bimomial</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># podemos usar o objeto para calcular a probabilidade</span>
+<span class="c1"># k sucessos, com o método .pmf()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Probabilidade X = 1 sucesso: </span><span class="si">{</span><span class="n">binomial</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Probabilidade X = 10 sucessos: </span><span class="si">{</span><span class="n">binomial</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Probabilidade X = 42 sucesso: </span><span class="si">{</span><span class="n">binomial</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="mi">48</span><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Probabilidade X = 90 sucesso: </span><span class="si">{</span><span class="n">binomial</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="mi">61</span><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># vejamos qual a probabilidade para cada um dos eventos</span>
+<span class="c1"># podemos encontrar 0, 1, 2, ..., 98, 99 ou 100 sucessos</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">101</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Possíveis valores: </span><span class="si">{</span><span class="n">X</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">pmf</span> <span class="o">=</span> <span class="n">binomial</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">9</span><span class="p">))</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span>
+    <span class="n">X</span><span class="p">,</span>
+    <span class="n">pmf</span><span class="p">,</span>
+    <span class="n">width</span><span class="o">=</span><span class="mi">1</span>
+<span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;k/número de sucessos&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;$\mathbb</span><span class="si">{P}</span><span class="s2">(X = k)$&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Distribuição binomial de probabilidade, $X \sim Bin(100, 0.5)$&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Amostras binomial: [60 45 48 56 44 59 46 48 51 61 51 53 53 50 51 42 45 48 49 57 49 48 55 53
+ 51 52 50 51 53 56 48 57 41 56 56 53 57 58 49 52 58 49 46 45 52 51 47 51
+ 49 55 32 48 50 46 50 49 50 54 57 47 55 36 49 55 51 54 50 50 44 47 48 48
+ 57 43 45 61 46 56 55 42 49 55 49 53 52 60 50 41 40 40 50 49 46 45 48 53
+ 55 48 56 49]
+Probabilidade X = 1 sucesso: 0.00
+Probabilidade X = 10 sucessos: 0.02
+Probabilidade X = 42 sucesso: 0.07
+Probabilidade X = 90 sucesso: 0.01
+Possíveis valores: [  0   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17
+  18  19  20  21  22  23  24  25  26  27  28  29  30  31  32  33  34  35
+  36  37  38  39  40  41  42  43  44  45  46  47  48  49  50  51  52  53
+  54  55  56  57  58  59  60  61  62  63  64  65  66  67  68  69  70  71
+  72  73  74  75  76  77  78  79  80  81  82  83  84  85  86  87  88  89
+  90  91  92  93  94  95  96  97  98  99 100]
+</pre></div>
+</div>
+<img alt="_images/03_variaveis_aleatorias_6_1.png" src="_images/03_variaveis_aleatorias_6_1.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="a-distribuicao-de-poisson">
+<h3>3.1.3. A distribuição de Poisson<a class="headerlink" href="#a-distribuicao-de-poisson" title="Permalink to this headline">#</a></h3>
+<p>A última distribuição discreta que abordaremos é chamada distribuição de Poisson. Ela aparece na modelagem de fenômenos de contagem, ou para eventos que ocorrem com uma determinada frequência no tempo. Ela é parametrizada por um parâmetro chamado taxa, representado pela letra grega lâmbda, <span class="math notranslate nohighlight">\(\lambda\)</span>. Assim, se <span class="math notranslate nohighlight">\(X\)</span> segue uma distribuição de Poissson escrevemos <span class="math notranslate nohighlight">\(X \sim \text{Pois}(\lambda)\)</span>. Sua função massa de probabilidade é:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-830068f1-75c5-4382-8697-8928eef4a33c">
+<span class="eqno">(7)<a class="headerlink" href="#equation-830068f1-75c5-4382-8697-8928eef4a33c" title="Permalink to this equation">#</a></span>\[\begin{equation}
+    \mathbb{P}(X = k) = \frac{\lambda^k e^{-\lambda}}{k!}
+\end{equation}\]</div>
+<p>Aqui, <span class="math notranslate nohighlight">\(e\)</span> é o número de Euler, e <span class="math notranslate nohighlight">\(k\)</span> é o número de ocorrências. Não precisamos nos preocupar com a matemática nesse momento. Portanto, vejamos um exemplo para entender melhor essa distribuição.</p>
+<section id="id2">
+<h4>Exemplo<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h4>
+<p>Considere que em uma determinada população, observamos uma média de duas visitas ao pronto socorro por ano, dessa maneira a taxa de interesse é <span class="math notranslate nohighlight">\(\lambda = 2\)</span>. Usaremos a classe <code class="docutils literal notranslate"><span class="pre">stats.poisson</span></code> da biblioteca <code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code> para analisar o comportamento da variável aleatória.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># instanciamos a variável aleatória por stats.poisson(taxa)</span>
+<span class="n">poisson</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">poisson</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># alguns possíveis valores que a variável pode obter</span>
+<span class="c1"># podem ser observados por uma amostra aleatória</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Amostra de 100 casos: </span><span class="si">{</span><span class="n">poisson</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># além disso, podemos usar o método .pmf() para calcular a</span>
+<span class="c1"># probabilidade de k visitas ao PS</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Probabilidade de X = 0 visitas: </span><span class="si">{</span><span class="n">poisson</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Probabilidade de X = 1 visitas: </span><span class="si">{</span><span class="n">poisson</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Probabilidade de X = 2 visitas: </span><span class="si">{</span><span class="n">poisson</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Probabilidade de X = 3 visitas: </span><span class="si">{</span><span class="n">poisson</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># faremos também um gráfico da distribuição, nesse caso, avaliaremos</span>
+<span class="c1"># 10 possíveis valores: 0, 1, ..., 9</span>
+<span class="c1"># a rigor uma variável aleatória de Poisson pode qualquer valor inteiro</span>
+<span class="c1"># maior que zero, mas nos basta olhar apenas esse intervalo</span>
+
+<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Possíveis números de visitas: </span><span class="si">{</span><span class="n">X</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">pmf</span> <span class="o">=</span> <span class="n">poisson</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">9</span><span class="p">))</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span>
+    <span class="n">X</span><span class="p">,</span> 
+    <span class="n">pmf</span><span class="p">,</span>
+    <span class="n">width</span><span class="o">=</span><span class="mi">1</span>
+<span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;k/Número de ocorrências&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;$\mathbb</span><span class="si">{P}</span><span class="s2">(X = k)$&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Distribuição Poisson de probabilidade, $X \sim Pois(2)$&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Amostra de 100 casos: [2 2 2 1 1 3 2 0 2 1 4 5 1 0 2 1 0 0 3 4 2 3 2 0 0 1 1 0 3 1 3 3 4 0 4 3 2
+ 0 2 2 2 2 2 3 1 3 4 1 2 0 2 3 3 0 2 1 1 3 0 1 0 2 2 3 3 5 2 2 5 1 1 2 0 3
+ 2 5 4 1 3 2 1 2 2 2 0 1 3 3 1 1 1 4 2 5 3 2 1 1 1 1]
+Probabilidade de X = 0 visitas: 0.14
+Probabilidade de X = 1 visitas: 0.27
+Probabilidade de X = 2 visitas: 0.27
+Probabilidade de X = 3 visitas: 0.18
+Possíveis números de visitas: [0 1 2 3 4 5 6 7 8 9]
+</pre></div>
+</div>
+<img alt="_images/03_variaveis_aleatorias_8_1.png" src="_images/03_variaveis_aleatorias_8_1.png" />
+</div>
+</div>
+</section>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="02_prob_cond_bayes.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">2. Probabilidade condicional e teorema de Bayes</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="markdown.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Markdown Files</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Rodolfo J. Amancio<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

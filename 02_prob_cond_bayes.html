@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Probabilidade condicional e teorema de Bayes &#8212; Introdução à probabilidade e estatística para analistas de dados</title>
+    <title>2. Probabilidade condicional e teorema de Bayes &#8212; Introdução à probabilidade e estatística para analistas de dados</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -55,7 +55,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Markdown Files" href="markdown.html" />
-    <link rel="prev" title="O que é probabilidade?" href="01_o_que_e_probabilidade.html" />
+    <link rel="prev" title="1. Introdução à probabilidade" href="01_prob_intro.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -117,13 +117,13 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="01_o_que_e_probabilidade.html">
-   O que é probabilidade?
+  <a class="reference internal" href="01_prob_intro.html">
+   1. Introdução à probabilidade
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Probabilidade condicional e teorema de Bayes
+   2. Probabilidade condicional e teorema de Bayes
   </a>
  </li>
 </ul>
@@ -346,7 +346,7 @@ title="Print to PDF"
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#probabilidade-condicional">
-   Probabilidade condicional
+   2.1. Probabilidade condicional
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
@@ -358,7 +358,7 @@ title="Print to PDF"
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#lei-da-probabilidade-total">
-   Lei da probabilidade total
+   2.2. Lei da probabilidade total
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
@@ -370,7 +370,7 @@ title="Print to PDF"
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#teorema-de-bayes">
-   Teorema de Bayes
+   2.3. Teorema de Bayes
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
@@ -389,7 +389,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Probabilidade condicional e teorema de Bayes</h1>
+                <h1>2. Probabilidade condicional e teorema de Bayes</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -401,7 +401,7 @@ title="Print to PDF"
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#probabilidade-condicional">
-   Probabilidade condicional
+   2.1. Probabilidade condicional
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
@@ -413,7 +413,7 @@ title="Print to PDF"
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#lei-da-probabilidade-total">
-   Lei da probabilidade total
+   2.2. Lei da probabilidade total
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
@@ -425,7 +425,7 @@ title="Print to PDF"
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#teorema-de-bayes">
-   Teorema de Bayes
+   2.3. Teorema de Bayes
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
@@ -446,12 +446,12 @@ title="Print to PDF"
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="probabilidade-condicional-e-teorema-de-bayes">
-<h1>Probabilidade condicional e teorema de Bayes<a class="headerlink" href="#probabilidade-condicional-e-teorema-de-bayes" title="Permalink to this headline">#</a></h1>
+<h1>2. Probabilidade condicional e teorema de Bayes<a class="headerlink" href="#probabilidade-condicional-e-teorema-de-bayes" title="Permalink to this headline">#</a></h1>
 <section id="probabilidade-condicional">
-<h2>Probabilidade condicional<a class="headerlink" href="#probabilidade-condicional" title="Permalink to this headline">#</a></h2>
+<h2>2.1. Probabilidade condicional<a class="headerlink" href="#probabilidade-condicional" title="Permalink to this headline">#</a></h2>
 <p>De forma geral, probabilidade condicional repsenta a probabilidade de se observar um resultado sob alguma condição. Vamos defini-la e depois avaliar alguns exemplos. Suponha que desejamos calcular a probabilidade de se observar o evento <span class="math notranslate nohighlight">\(A\)</span> sendo que já sabemos que <span class="math notranslate nohighlight">\(B\)</span> é ocorreu, então:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-3cfdda88-c1dd-4c3b-a565-637a4e285155">
-<span class="eqno">(1)<a class="headerlink" href="#equation-3cfdda88-c1dd-4c3b-a565-637a4e285155" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-965b1540-b7ef-4e51-8a49-d09b8a56bdac">
+<span class="eqno">(1)<a class="headerlink" href="#equation-965b1540-b7ef-4e51-8a49-d09b8a56bdac" title="Permalink to this equation">#</a></span>\[\begin{equation}
     \mathbb{P}(A|B) = \frac{\mathbb{P}(A \cap B)}{\mathbb{P}(B)}
 \end{equation}\]</div>
 <p>Em que <span class="math notranslate nohighlight">\(\mathbb{P}(A|B)\)</span> é lido como: probabilidade de <span class="math notranslate nohighlight">\(A\)</span> dado <span class="math notranslate nohighlight">\(B\)</span>. Enquanto <span class="math notranslate nohighlight">\(\mathbb{P}(A \cap B)\)</span> é a probabilidade de se observar <span class="math notranslate nohighlight">\(A\)</span> e <span class="math notranslate nohighlight">\(B\)</span>, ou seja, a intersecção entre os dois eventos. Note que a equação acima só é válida se <span class="math notranslate nohighlight">\(\mathbb{P}(B) &gt; 0\)</span>.</p>
@@ -465,10 +465,10 @@ title="Print to PDF"
 </section>
 </section>
 <section id="lei-da-probabilidade-total">
-<h2>Lei da probabilidade total<a class="headerlink" href="#lei-da-probabilidade-total" title="Permalink to this headline">#</a></h2>
+<h2>2.2. Lei da probabilidade total<a class="headerlink" href="#lei-da-probabilidade-total" title="Permalink to this headline">#</a></h2>
 <p>Considere que o espaço amostral possa ser dividido em subconjuntos (ou eventos): <span class="math notranslate nohighlight">\(B_1, B_2, B_3, ..., B_n\)</span>. E estejamos interessados na probabilidade de um evento <span class="math notranslate nohighlight">\(A\)</span>, então a seguinte equação é válida:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-cdcf055a-d3e9-4d25-99b1-fed62c1c83a8">
-<span class="eqno">(2)<a class="headerlink" href="#equation-cdcf055a-d3e9-4d25-99b1-fed62c1c83a8" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-a07f97f5-a23f-425c-be35-d3058fc1f9c4">
+<span class="eqno">(2)<a class="headerlink" href="#equation-a07f97f5-a23f-425c-be35-d3058fc1f9c4" title="Permalink to this equation">#</a></span>\[\begin{equation}
     \mathbb{P}(A) = \mathbb{P}(A|B_1)\mathbb{P}(B_1) + \mathbb{P}(A|B_2)\mathbb{P}(B_2) + ... + \mathbb{P}(A|B_n)\mathbb{P}(B_n)
 \end{equation}\]</div>
 <p>Podemos entender essa fórmula da seguinte maneira: a probabilidade de se observar o evento <span class="math notranslate nohighlight">\(A\)</span> é igual á probabilidade de se observar <span class="math notranslate nohighlight">\(A\)</span> condicional a <span class="math notranslate nohighlight">\(B_1\)</span> ter ocorrido, multiplicado pela probabilidade de <span class="math notranslate nohighlight">\(B_1\)</span> mais a probabilidade de <span class="math notranslate nohighlight">\(A\)</span> condicional à <span class="math notranslate nohighlight">\(B_2\)</span> etc.</p>
@@ -486,10 +486,10 @@ title="Print to PDF"
 </section>
 </section>
 <section id="teorema-de-bayes">
-<h2>Teorema de Bayes<a class="headerlink" href="#teorema-de-bayes" title="Permalink to this headline">#</a></h2>
+<h2>2.3. Teorema de Bayes<a class="headerlink" href="#teorema-de-bayes" title="Permalink to this headline">#</a></h2>
 <p>A probabilidade condicional é peça fundamental de um dos resultados mais importantes da estatística: o teorema de Bayes. Em geral durante pesquisas científicas ou investigações nós formulamos hipóteses. Conforme coletamos mais dados, ou temos uma nova descoberta, precisamos atualizar nossa probabilidade. Esse é o problema que entenderemos como resulver. Partiremos da fórmula:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-31d81a47-6503-4601-8152-8239951a5c4a">
-<span class="eqno">(3)<a class="headerlink" href="#equation-31d81a47-6503-4601-8152-8239951a5c4a" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-52d99b2a-0506-45f5-b8e0-0f1064933e04">
+<span class="eqno">(3)<a class="headerlink" href="#equation-52d99b2a-0506-45f5-b8e0-0f1064933e04" title="Permalink to this equation">#</a></span>\[\begin{equation}
     \mathbb{P}(A | B) = \frac{\mathbb{P}(B | A) \mathbb{P}(A)}{\mathbb{P}(B)}
 \end{equation}\]</div>
 <p>Nesse caso, a partir de uma probabilidade condicional <span class="math notranslate nohighlight">\(\mathbb{P}(B|A)\)</span>, temos um caminho para encontrar <span class="math notranslate nohighlight">\(\mathbb{P}(A|B)\)</span>. Para ficar mais claro, considere que <span class="math notranslate nohighlight">\(A\)</span> é uma hpótese de um pesquisador. Com base em suas pesquisas, a probabilidade dessa hipótese estar correta é <span class="math notranslate nohighlight">\(\mathbb{P}(A)\)</span>. Com o tempo, e realização de experimentos ele se depara com um resultado <span class="math notranslate nohighlight">\(B\)</span>, que ocorre com probabilidade <span class="math notranslate nohighlight">\(\mathbb{P}(B)\)</span>. Além disso, ele sabe que se a hipótese dele (<span class="math notranslate nohighlight">\(A\)</span>) estiver correta, então a probabilidade de se observar <span class="math notranslate nohighlight">\(B\)</span> é <span class="math notranslate nohighlight">\(\mathbb{P}(B|A)\)</span>.</p>
@@ -559,7 +559,7 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-<p>Logo, a probabilidade da pessoa estar doente, sendo que seu teste deu positivo pe de 54%.</p>
+<p>Logo, a probabilidade da pessoa estar doente, sendo que seu teste deu positivo é de 54%.</p>
 </section>
 </section>
 </section>
@@ -591,11 +591,11 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="01_o_que_e_probabilidade.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="01_prob_intro.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">O que é probabilidade?</p>
+            <p class="prev-next-title">1. Introdução à probabilidade</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="markdown.html" title="next page">

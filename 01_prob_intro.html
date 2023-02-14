@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Introdução à probabilidade e estatística para análise de dados &#8212; Introdução à probabilidade e estatística para analistas de dados</title>
+    <title>1. Introdução à probabilidade &#8212; Introdução à probabilidade e estatística para analistas de dados</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -50,9 +50,12 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="1. Introdução à probabilidade" href="01_prob_intro.html" />
+    <link rel="next" title="2. Probabilidade condicional e teorema de Bayes" href="02_prob_cond_bayes.html" />
+    <link rel="prev" title="Introdução à probabilidade e estatística para análise de dados" href="intro.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -101,8 +104,8 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="bd-toc-item active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1 current active">
-                <a class="reference internal" href="#">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
                     Introdução à probabilidade e estatística para análise de dados
                 </a>
             </li>
@@ -112,20 +115,15 @@ const thebe_selector_output = ".output, .cell_output"
   Parte I - Probabilidade
  </span>
 </p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="01_prob_intro.html">
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    1. Introdução à probabilidade
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="02_prob_cond_bayes.html">
    2. Probabilidade condicional e teorema de Bayes
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="03_variaveis_aleatorias.html">
-   3. Variáveis aleatórias
   </a>
  </li>
 </ul>
@@ -230,7 +228,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/rodolfoamancio/intro_prob_estat_analise_dados/issues/new?title=Issue%20on%20page%20%2Fintro.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/rodolfoamancio/intro_prob_estat_analise_dados/issues/new?title=Issue%20on%20page%20%2F01_prob_intro.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -258,7 +256,7 @@ title="Open an issue"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="_sources/intro.md"
+        <a href="_sources/01_prob_intro.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -295,23 +293,74 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#definindo-probabilidade">
+   1.1. Definindo probabilidade
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#eventos-e-espaco-amostral">
+     1.1.1 Eventos e espaço amostral
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
 </div>
     </div>
     <div class="article row">
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Introdução à probabilidade e estatística para análise de dados</h1>
+                <h1>1. Introdução à probabilidade</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#definindo-probabilidade">
+   1.1. Definindo probabilidade
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#eventos-e-espaco-amostral">
+     1.1.1 Eventos e espaço amostral
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -319,25 +368,34 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="introducao-a-probabilidade-e-estatistica-para-analise-de-dados">
-<h1>Introdução à probabilidade e estatística para análise de dados<a class="headerlink" href="#introducao-a-probabilidade-e-estatistica-para-analise-de-dados" title="Permalink to this headline">#</a></h1>
-<p>Bem-vindo, esse livro é dedicado à quem está aprendendo probabilidade e estatítica para análise de dados, os conteúdos são direcionados à um público iniciante.</p>
-<p>Durante os capítulos, conceitos teóricos são abordados de forma básica, priorizando o ententimento do racional e com pouco ênfase em matemática e outros temas que acompanham o assunto. Além disso, os exemplos são feitos em python. Não é prioridade do livro realizar um letramento do leitor na ferramenta, mas busca-se explicar as funções, os métodos e as bibliotecas de forma básica.</p>
-<p>Esse livro é divido em duas partes, na primeira, foca-se em introdução da probabilidade, conceitos de probabilidade total, Teorema de Bayes, Teorema do limite central etc. Na segunda parte, é apresentad a estatística, com análises de estatística descritiva, testes de hipótese e introdução à regressão.</p>
-<div class="toctree-wrapper compound">
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Parte I - Probabilidade</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="01_prob_intro.html">1. Introdução à probabilidade</a></li>
-<li class="toctree-l1"><a class="reference internal" href="02_prob_cond_bayes.html">2. Probabilidade condicional e teorema de Bayes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="03_variaveis_aleatorias.html">3. Variáveis aleatórias</a></li>
+  <section class="tex2jax_ignore mathjax_ignore" id="introducao-a-probabilidade">
+<h1>1. Introdução à probabilidade<a class="headerlink" href="#introducao-a-probabilidade" title="Permalink to this headline">#</a></h1>
+<p>Lidamos com incerteza o tempo todo em nossas vidas, ao escolhermos se devemos levar um guarda-chuva ao sair de casa, ao fazer escolhas financeiras ou outros assuntos em que temos informações limitadas e modelos pouco representativos da variabilidade do mundo (ou das pessoas). Ao lidar com esses problemas, muitas vezes atríbuimos probabilidades à eventos específicos. Por exemplo: qual a chance de chover? Definir probabilidade rigorosamente é bem mais difícil do que possa parecer, de fato a comunidade científica se divide em duas visões sobre o assunto:</p>
+<ul class="simple">
+<li><p>Abordagem frequentista (ou clássica): associada ao número de vezes que podemos repetir um experimento e obter o mesmo resultado, por exemplo ao lançar uma moeda 100 vezes e registrar o número de vezes que registramos cara virada para cima, podemos tomar o quociente entre os dois valores como a probabilidade de se obter cara.</p></li>
+<li><p>Abordagem Bayesiana: a descrição anterior é alvo de críticas. Por exemplo: considere uma eleição presidencial, ou a previsão do tempo para um dia específico. Nesses dois casos, os eventos não são repetidos: só há um dia 21/01/2023 ou uma eleição presidencial em 2022 (considere apenas um dos turnos). Em resumo, não são experimentos que podemos repetir e registrar os resultados para depois calcular a frequência. Mas ainda assim definimos probabilidades para eles. De fato, o que os Bayesianos argumentam é que probabilidade é uma medida da crença que temos em um evento, ou a possibilidade dele ocorrer.</p></li>
 </ul>
-</div>
-<div class="toctree-wrapper compound">
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Parte II - Estatística</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="markdown.html">Markdown Files</a></li>
+<p>Apesar das críticas e divergências das duas vertentes, os pilares que sustentam a probabilidade em ambos os campos são os mesmos. Durante esse material, será utilizada a abordagem frequentista. Um leitor atento pode ficar incomodado com a crítica anterior e a escolha desse caminho. Para esse caso, podemos assumir que apesar de alguns eventos não poderem ser repetidos, podemos ainda assim tomar essa medida para indicar se ele deve ocorrer. Conforme veremos, isso não nos imperidá de traçar resultados interessantes e entender como aplicar essa teoria em nossas tomadas de decisão e análises.</p>
+<section id="definindo-probabilidade">
+<h2>1.1. Definindo probabilidade<a class="headerlink" href="#definindo-probabilidade" title="Permalink to this headline">#</a></h2>
+<section id="eventos-e-espaco-amostral">
+<h3>1.1.1 Eventos e espaço amostral<a class="headerlink" href="#eventos-e-espaco-amostral" title="Permalink to this headline">#</a></h3>
+<p>Para definir probabilidade precisamos estabelecer algumas nomenclaturas para os conceitos e grandezas que cercam nossa análise. Deonominamos <strong>evento</strong> o possível resultado de um experimento, por exemplo o lançamento de um dado e registro de um número (por exemplo 5) é um evento. Trata-se de uma observação nesse caso. A coleção de possíveis resultados de um experimento é denominado <strong>espaço amostral</strong>, usualmente ele é representado pela letra grega ômega maiúscula, <span class="math notranslate nohighlight">\(\Omega\)</span>. Vide os exemplos:</p>
+<ul class="simple">
+<li><p>Lançamento de um dado: <span class="math notranslate nohighlight">\(\Omega = \{1, 2, 3, 4, 5, 6\}\)</span></p></li>
+<li><p>Lançamento de uma moeda: <span class="math notranslate nohighlight">\(\Omega = \{\textnormal{cara}, \textnormal{coroa}\}\)</span>, em alguns casos o lançamento de uma moeda aparece no formato <span class="math notranslate nohighlight">\(\Omega = \{\textnormal{H}, \textnormal{T}\}\)</span> em referência às palavras em inglês heads (para cara) e tails (para coroa), isso é útil pois a inicial das palavras em português são iguais.</p></li>
 </ul>
-</div>
+<p>De forma genética podemos escrever <span class="math notranslate nohighlight">\(\Omega = \{\omega_1, \omega_2, ...\}\)</span>, em que <span class="math notranslate nohighlight">\(\omega_1, \omega_2,...\)</span> são os possíveis resultados.</p>
+<p>Um espaço amostral nada mais é que um conjunto, como tal ele pode ser submetido a operações como partição, união, interesecão etc. Isso ficará mais claro a partir de um exemplo:</p>
+<p>Considerde um dado de 6 lados. Tempos portanto o espaço amostral <span class="math notranslate nohighlight">\(\Omega = \{1, 2, 3, 4, 5, 6\}\)</span>. Podemos <strong>particionar</strong> esse conjunto com estratégias diferentes, por exemplo em números pares e ímpares: <span class="math notranslate nohighlight">\(P = \{2, 4, 6\}\)</span> e <span class="math notranslate nohighlight">\(I = \{1, 3, 5\}\)</span>. Ou entre números maiores que <span class="math notranslate nohighlight">\(3\)</span> ou não <span class="math notranslate nohighlight">\(M = \{4, 5, 6\}\)</span> e <span class="math notranslate nohighlight">\(m = \{1, 2, 3\}\)</span>. Nesse caso usamos o critério maior que <span class="math notranslate nohighlight">\(3\)</span> para classificar os números, como <span class="math notranslate nohighlight">\(3=3\)</span> ele não é maior que si mesmo, e fica no segundo conjunto.</p>
+<p>Sobre esses conjuntos veremos na próxima seção como atribuir probabilidades, mas antes vamos analisar duas operações de conjuntos:</p>
+<ol class="simple">
+<li><p><strong>União</strong>: chamamos de união o conjunto formado por todos os elementos de dois conjuntos, representamos a união de dois conjuntos <span class="math notranslate nohighlight">\(A\)</span> e <span class="math notranslate nohighlight">\(B\)</span> por <span class="math notranslate nohighlight">\(A \cup B\)</span>. Por exemplo, a união dos números pares e maiores que 3 é: <span class="math notranslate nohighlight">\(P \cup M = \{2, 4, 6\} \cup \{4, 5, 6\} = \{2, 4, 5, 6\}\)</span>.</p></li>
+<li><p><strong>Intersecção</strong>: chamamos de intersecção o conjunto formado pelos elementos que aparecem nos dois conjuntos, representamos a interseção de dois conjuntos <span class="math notranslate nohighlight">\(A\)</span> e <span class="math notranslate nohighlight">\(B\)</span> pro <span class="math notranslate nohighlight">\(A \cap B\)</span>. Por exemplo, a interseção entre os conjuntos de números ímpares e maiores que 3 é: <span class="math notranslate nohighlight">\(I \cap M = \{1, 3, 5\} \cap \{4, 5, 6\} = \{5\}\)</span>. Nesse caso temos um conjunto de apenas um elemento, pois somente ele aparece nos dois conjuntos.</p></li>
+</ol>
+<p>Um conjunto sem nenhum elemento é chamado <strong>conjunto vazio</strong> e é representado por <span class="math notranslate nohighlight">\(\varnothing\)</span>. Dois conjuntos são chamados de <strong>disjuntos</strong> se sua interseção tem como resultado um conjunto vazio. Por exemplo, a intersecção entre os conjuntos dos números pares e ímpares: <span class="math notranslate nohighlight">\(P \cap I = \{2, 4, 6\} \cap \{1, 3, 5\} = \varnothing\)</span>, pois não há elemento em comum entre os conjuntos.</p>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -367,10 +425,17 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='right-next' id="next-link" href="01_prob_intro.html" title="next page">
+    <a class='left-prev' id="prev-link" href="intro.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Introdução à probabilidade e estatística para análise de dados</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="02_prob_cond_bayes.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">1. Introdução à probabilidade</p>
+        <p class="prev-next-title">2. Probabilidade condicional e teorema de Bayes</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
